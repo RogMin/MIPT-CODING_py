@@ -1,27 +1,11 @@
-f = list(filter(str.isdigit, open("Task 7 input.txt", "r", encoding="utf-8").read().split()))
-f = [int(item) for item in f]
-print(f)
-Schools = []
-winthreeshold = 80
-for x in range(len(f)):
-    if x % 2 != 0:
-        if f[x] >= winthreeshold:
-            if f[x-1] in Schools:
-                print()
+with open("input.txt", "r", encoding="utf-8") as f:
+    a = list(map(lambda x: x.rstrip().split(), f.readlines()))
+    a = sorted(a, key = lambda x: (-int(x[3]), int(x[2]), x[1]))
+    y = 0
+    for i in range(len(a)):
+        if a[i][3]==a[0][3]:
+            if y == int(a[i][2]):
+                continue
             else:
-                Schools.append((f[x-1]))
-
-print(Schools)
-print(list.sort(Schools))
-
-
-
-
-
-
-
-
-
-
-
-
+                print(int(a[i][2]), end=' ')
+                y = int(a[i][2])
