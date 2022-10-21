@@ -1,1 +1,0 @@
-print(open("Task 4 input.txt", "r").read()[::-1])
