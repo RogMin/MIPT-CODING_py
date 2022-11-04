@@ -1,7 +1,11 @@
 import math
 import numpy as np
 from matplotlib import pyplot as plt
+import matplotlib.transforms as mtransforms
 
+"""
+TRASH TRASH TRASH ЭТО СВАЛКА НЕ ЗАГЛЯДЫВАЙТЕ СЮДА TRASH TRASH TRASH 
+"""
 
 def lab141(xc,y,t, mc = 0.869, mg= 0.311 ,l = 1): #Значения подавать в СИ mc 0.869 кг вес стержня, mg 0.311 кг вес груза, 100 м длина
     period = t/20
@@ -38,6 +42,9 @@ def BuildScatterPlot(x,y,mnk = False, mrksz = 5, xlbl = "" ,ylbl = ""):
     plt.show()
     return
 
+#def LagrangeInt(x,y):
+
+   # return f
 
 #plt.minorticks_on()
 #plt.grid(which='major', axis='both', alpha=1)
@@ -51,8 +58,88 @@ def BuildScatterPlot(x,y,mnk = False, mrksz = 5, xlbl = "" ,ylbl = ""):
 
 #BuildLinePlot(x,y)
 
-xc = np.array([36.35, 38.2, 37.2, 36.3, 35.4, 34.5, 33.1, 32.5,31.6, 31,30.1,29.2,28.1,26.6,26,24.3,23.1,21.3]) / 100
-y = np.array([63.5,70.6,66.65,62.8,59.4,55.8,50.5,47.9,43.75,41.1,37.9,34.2,29.9,24.5,21,15.5,10.9,3.5]) /100
-t = np.array([31.1,32.05,31.57,31.1,30.72,30.33,29.8,29.59,29.26,29.07,28.88,28.6,28.56,28.5,28.57,28.77,29.1,30.01])
-print(np.mean(lab141(xc,y,t)))
+
+def mandelbrot(h, w, maxit=20):
+    y, x = np.ogrid[-1.4:1.4:h * 1j, -2:0.8:w * 1j]
+    c = x + y * 1j
+    z = c
+    divtime = maxit + np.zeros(z.shape, dtype=int)
+    for i in range(maxit):
+        z = (z ** 2 + c) * np.complex(1)
+        diverge = z * np.conj(z) > 2 ** 2
+        div_now = diverge & (divtime == maxit)
+        divtime[div_now] = i
+        z[diverge] = 2
+    return divtime
+def is_prime(x):
+    x = int(x)
+    for i in range(2, (x//2)+1):
+        if x % i == 0:
+            return False
+        return True
+
+def coll(n):
+    numb = []
+    n_pr =[]
+    while n > 1:
+        if (n % 2) == 0:
+            n /= 2
+            numb.append(n)
+        else:
+            n = (n * 3) + 1
+            numb.append(n)
+
+        if (is_prime(n)): n_pr.append((n))
+    return numb,n_pr
+
+
+numb, n_pr = coll(1005)
+BuildLinePlot(np.arange(0,len(numb)), numb, np.arange(0,len(n_pr), n_pr))
+plt.polar(numb)
+BuildLinePlot(np.arange(0,len(n_pr)),n_pr)
+plt.polar(n_pr)
+
+#xs = np.arange(7)
+#ys = xs**2
+
+#fig = plt.figure(figsize=(5, 10))
+#ax = plt.subplot(2, 1, 1)
+
+
+#trans_offset = mtransforms.offset_copy(ax.transData, fig=fig,
+#                                       x=0.05, y=0.10, units='inches')
+#for x, y in zip(xs, ys):
+#    plt.plot(x, y, 'ro')
+#    plt.text(x, y, '%d, %d' % (int(x), int(y)), transform=trans_offset)
+
+
+
+
+#ax = plt.subplot(2, 1, 2, projection='polar')
+
+#trans_offset = mtransforms.offset_copy(ax.transData, fig=fig,
+                                      # y=6, units='dots')
+
+#for x, y in zip(xs, ys):
+#    plt.polar(x, y, 'ro')
+#    plt.text(x, y, '%d, %d' % (int(x), int(y)),
+#             transform=trans_offset,
+#             horizontalalignment='center',
+#             verticalalignment='bottom')
+
+plt.show()
+
+#plt.imshow(mandelbrot(400, 400))
+#plt.show()
+
+
+
+
+
+
+
+
+
+
+
 

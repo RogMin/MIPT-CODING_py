@@ -1,0 +1,22 @@
+f = list(filter(str.isdigit, open("Task 6 input.txt", "r", encoding="utf-8").read().split()))
+f = [int(item) for item in f]
+Grader9Win = 0
+Grader10Win = 0
+Grader11Win = 0
+for x in range(len(f)):
+    if x % 2 != 0:
+        if f[x-1] == 9:
+            if f[x] > Grader9Win:
+                Grader9Win = f[x]
+        if f[x-1] == 10:
+            if x > Grader10Win:
+                Grader10Win = f[x]
+        if f[x-1] == 11:
+            if f[x] > Grader11Win:
+                Grader11Win = f[x]
+
+print(Grader9Win, Grader10Win, Grader11Win)
+
+
+
+
