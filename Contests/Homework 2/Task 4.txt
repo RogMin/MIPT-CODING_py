@@ -1,2 +1,0 @@
-f = open("Task 4 input.txt", "r").readlines()
-print([f[n] for n in reversed(range(len(f)))])

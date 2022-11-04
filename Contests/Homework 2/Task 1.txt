@@ -1,4 +1,0 @@
-f = open("Task 1 output.txt", "w")
-n = 5  #строки
-m = 6  #столбц
-f.write(' '.join(map(str, [[i*6+j for j in range(m)] for i in range(n)])))
