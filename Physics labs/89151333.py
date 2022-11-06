@@ -93,11 +93,17 @@ def coll(n):
     return numb,n_pr
 
 
+x = [17, 19, 20, 21,22,23,24,25,26,27,28]
+y = [3.5,3.5, 4 ,4.5 ,2.5 ,4.5, 4.5, 4, 3.5, 4,3]
+
+BuildLinePlot(x,y)
 numb, n_pr = coll(1005)
 BuildLinePlot(np.arange(0,len(numb)), numb, np.arange(0,len(n_pr), n_pr))
 plt.polar(numb)
 BuildLinePlot(np.arange(0,len(n_pr)),n_pr)
 plt.polar(n_pr)
+
+
 
 #xs = np.arange(7)
 #ys = xs**2
