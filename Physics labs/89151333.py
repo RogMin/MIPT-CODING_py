@@ -29,7 +29,7 @@ def BuildLinePlot(x,y,mnk = False,xlbl = "" ,ylbl = ""):
     plt.show()
     return
 
-def BuildScatterPlot(x,y,mnk = False, mrksz = 5, xlbl = "" ,ylbl = ""):
+def BuildScatterPlot(x,y,mnk = False, xlbl = "" ,ylbl = "" ,mrksz = 5):
     plt.minorticks_on()
     plt.xlabel(xlbl)
     plt.ylabel(ylbl)
@@ -93,17 +93,20 @@ def coll(n):
     return numb,n_pr
 
 
-x = [17, 19, 20, 21,22,23,24,25,26,27,28]
-y = [3.5,3.5, 4 ,4.5 ,2.5 ,4.5, 4.5, 4, 3.5, 4,3]
+#x = [17, 19, 20, 21,22,23,24,25,26,27,28]
+#y = [3.5,3.5, 4 ,4.5 ,2.5 ,4.5, 4.5, 4, 3.5, 4,3]
 
-BuildLinePlot(x,y)
-numb, n_pr = coll(1005)
-BuildLinePlot(np.arange(0,len(numb)), numb, np.arange(0,len(n_pr), n_pr))
-plt.polar(numb)
-BuildLinePlot(np.arange(0,len(n_pr)),n_pr)
-plt.polar(n_pr)
+#BuildLinePlot(x,y)
+#numb, n_pr = coll(1005)
+#BuildLinePlot(np.arange(0,len(numb)), numb, np.arange(0,len(n_pr), n_pr))
+#plt.polar(numb)
+#BuildLinePlot(np.arange(0,len(n_pr)),n_pr)
+#plt.polar(n_pr) 1/T, m гр
 
 
+
+
+#print(np.std([47.36,47.46,47.41] - np.std([30.43,30.45,30.41])))
 
 #xs = np.arange(7)
 #ys = xs**2
@@ -133,11 +136,21 @@ plt.polar(n_pr)
 #             horizontalalignment='center',
 #             verticalalignment='bottom')
 
-plt.show()
+#BuildScatterPlot(np.array([141,176,116,210,93])/1000,np.array([0.013694878,0.017020407,0.01126253,0.021204411,0.009030976]), True, "m, кг", "1/T, Гц")
+#x = np.array([141,176,116,210,93])/1000
+#y = np.array([0.013694878,0.017020407,0.01126253,0.021204411,0.009030976])
+#k = np.average(x*y) / np.average(x**2)
+#sigma = (1/(len(x)**(1/2)))*(((np.average(y**2)/np.average(x**2))-k**2) **(1/2))
+
+#print(k)
+#print(sigma)
 
 #plt.imshow(mandelbrot(400, 400))
 #plt.show()
-
+x = np.array([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24])
+y = np.array([1,3,3,3,2,3,3,3,2,1,4,3,4,4,2,4,4,3,3,4,1,2,3,4,2])
+print(len(x),len(y))
+BuildLinePlot(x,y)
 
 
 

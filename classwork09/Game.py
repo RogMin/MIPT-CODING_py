@@ -4,6 +4,7 @@ import random
 import pandas as pd
 import os
 
+
 max_ball_amount = 3
 balls = []
 colors = {
@@ -84,7 +85,7 @@ def get_leader_table(df):
     return df
 
 
-def game_tick(screen, FPS,df):
+def game_tick(screen, FPS, df):
     """ Game cycle """
     global score
     pygame.display.update()
